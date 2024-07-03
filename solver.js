@@ -42,6 +42,12 @@ function load() {
         document.getElementById("input2").style.display = "none";
         document.getElementById("input3").style.display = "none";
         document.getElementById("solve").style.display = "block";
+    } else if (problem == "largestProduct") {
+        document.getElementById("solution").textContent = "Enter max series size";
+        document.getElementById("input1").style.display = "block";
+        document.getElementById("input2").style.display = "none";
+        document.getElementById("input3").style.display = "none";
+        document.getElementById("solve").style.display = "block";
     }
 }
 function solve() {
@@ -62,6 +68,8 @@ function solve() {
     } else if (problem == "sumSquare") {
         sumSquare(Number(document.getElementById("input1").value));
     } else if (problem == "nthPrime") {
-        nthPrime(Number(document.getElementById("input1").value))
+        nthPrime(Number(document.getElementById("input1").value));
+    } else if (problem == "largestProduct") {
+        largestProduct(Number(document.getElementById("input1").value));
     }
 }
