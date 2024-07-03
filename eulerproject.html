@@ -1,0 +1,25 @@
+<html>
+<head>
+
+</head>
+<body>
+    <p>
+        Please select which problem you would like to solve
+    </p>
+    <button onclick="threeFive()">
+        Multiples of 3 or 5
+    </button>
+    <p id="solution"></p>
+    <script>
+        function threeFive() {
+            let total = 0;
+            for (let i = 0; i < 1000; i++) {
+                if (i % 5 == 0 || i % 3 == 0) {
+                    total += i;
+                }
+            }
+            document.getElementById("solution").textContent=total;
+        }
+    </script>
+</body>
+</html>
