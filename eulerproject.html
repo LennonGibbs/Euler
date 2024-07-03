@@ -4,37 +4,43 @@
 </head>
 <body>
     <style>
-        body{
+        body {
             background-color: darkgray;
         }
-        p{
+
+        p {
             font-family: 'Comic Sans MS';
-            font-size:medium;
+            font-size: medium;
         }
-        button{
-            padding:4px;
+
+        button {
+            padding: 4px;
             background-color: aquamarine;
             border-radius: 12px;
         }
-        select{
+
+        select {
             background-color: beige;
             border-width: 5px;
             border-radius: 20px;
             font-size: large;
             font-family: 'Comic Sans MS';
         }
-        table{
-            margin-left:auto;
-            margin-right:auto;
-            width:50%;
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
         }
     </style>
     <table>
-        <tr><td>
-            <p>
-                Please select which problem you would like to solve
-            </p>
-        </td></tr>
+        <tr>
+            <td>
+                <p>
+                    Please select which problem you would like to solve
+                </p>
+            </td>
+        </tr>
         <tr>
             <td>
                 <select name="problems" id="problems">
@@ -50,9 +56,11 @@
                 <button onclick="load()">Load</button>
             </td>
         </tr>
-        <tr><td>  
-            <p id="solution"></p>
-        </td></tr>
+        <tr>
+            <td>
+                <p id="solution"></p>
+            </td>
+        </tr>
         <tr>
             <td>
                 <input type="text" hidden id="input1" size="4">
@@ -64,118 +72,11 @@
             </td>
         </tr>
     </table>
-    <script>
-        function load() {
-            let problem = document.getElementById("problems").value
-            if (problem == "threeFive") {
-                document.getElementById("solution").textContent = "Enter the two multiples you would like to use, and the maximum";
-                document.getElementById("input1").style.display = "block";
-                document.getElementById("input2").style.display = "block";
-                document.getElementById("input3").style.display = "block";
-                document.getElementById("solve").style.display = "block";
-            }
-        }
-        function solve() {
-            let problem = document.getElementById("problems").value
-            if (problem == "threeFive") {
-                let x = Number(document.getElementById("input1").value);
-                let y = Number(document.getElementById("input2").value);
-                let z = Number(document.getElementById("input3").value);
-                threeFive(x,y,z);
-            } else if (problem == "fibEven") {
-                fibEven();
-            } else if (problem == "largePrime") {
-                largePrime();
-            } else if (problem == "palindrome") {
-                palindrome();
-            } else if (problem == "smallMult") {
-                smallMult();
-            } else if (problem == "sumSq") {
-                sumSqare();
-            }
-        }
-        function threeFive(x,y,z) {
-            let total = 0;
-            for (let i = 0; i < z; i++) {
-                if (i % x == 0 || i % y == 0) {
-                    total += i;
-                }
-            }
-            document.getElementById("solution").textContent=total;
-        }
-        function fibEven() {
-            let total = 0;
-            let current = 1;
-            let prev = 0;
-            let temp = 0;
-            while (current < 4000000) {
-                temp = current + prev;
-                prev = current;
-                current = temp;
-                if (current % 2 == 0) {
-                    total += current;
-                }
-            }
-            document.getElementById("solution").textContent = total;
-        }
-        function largePrime() {
-            let number = 600851475143
-            for (let i = 0; i < number; i++) {
-                if (isPrime(i)) {
-                    if (number % i == 0) {
-                        number = number / i;
-                    }
-                }
-            }
-            document.getElementById("solution").textContent = number;
-
-        }
-        function isPrime(i) {
-            for (let j = 2; j < Math.sqrt(i); j++) {
-                if (i % j == 0) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        function palindrome() {
-            let solution = 0;
-            for (let i = 100; i < 1000; i++) {
-                for (let j = 100; j < i; j++) {
-                    if (isPalindrome(i * j) && i*j>solution) {
-                        solution = i * j
-                    }
-                }
-            }
-            document.getElementById("solution").textContent = solution;
-        }
-        function isPalindrome(num) {
-            let word = num.toString();
-            let rev = "";
-            for (let i = 0; i < word.length; i++) {
-                rev = rev.concat(word[word.length - i - 1]);
-            }
-            if (word == rev) {
-                return true;
-            }
-            return false;
-        }
-        function smallMult() {
-            let solution = 20;
-            while (true) {
-                let isSol = true;
-                for (let i = 1; i < 21; i++) {
-                    if (solution % i != 0) {
-                        isSol = false; 
-                    }
-                }
-                if (isSol) {
-                    document.getElementById("solution").textContent = solution;
-                    break;
-                }
-                solution++;
-            }
-        }
-    </script>
+    <script src="solver.js"></script>
+    <script src="threeFive.js"></script>
+    <script src="fibEven.js"></script>
+    <script src="largePrime.js"></script>
+    <script src="palindrome.js"></script>
+    <script src="smallMult.js"></script>
 </body>
 </html>
