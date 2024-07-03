@@ -11,11 +11,3 @@ function largePrime(number) {
     document.getElementById("solution").textContent = answer;
 }
 
-function isPrime(i) {
-    for (let j = 2; j < Math.sqrt(i); j++) {
-        if (i % j == 0) {
-            return false;
-        }
-    }
-    return true;
-}
