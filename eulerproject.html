@@ -12,6 +12,9 @@
     <button onclick="fibEven()">
         Even Fibonacci Numbers
     </button>
+    <button onclick="largePrime()">
+        Largest Prime Factor
+    </button>
     <p id="solution"></p>
     <script>
         function threeFive() {
@@ -37,6 +40,26 @@
                 }
             }
             document.getElementById("solution").textContent = total;
+        }
+        function largePrime() {
+            let number = 600851475143
+            for (let i = 0; i < number; i++) {
+                if (isPrime(i)) {
+                    if (number % i == 0) {
+                        number = number / i;
+                    }
+                }
+            }
+            document.getElementById("solution").textContent = number;
+
+        }
+        function isPrime(i) {
+            for (let j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    return false;
+                }
+            }
+            return true;
         }
     </script>
 </body>
