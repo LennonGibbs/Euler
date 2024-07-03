@@ -15,6 +15,9 @@
     <button onclick="largePrime()">
         Largest Prime Factor
     </button>
+    <button onclick="palindrome()">
+        Largest Palindrome Product
+    </button>
     <p id="solution"></p>
     <script>
         function threeFive() {
@@ -60,6 +63,28 @@
                 }
             }
             return true;
+        }
+        function palindrome() {
+            let solution = 0;
+            for (let i = 100; i < 1000; i++) {
+                for (let j = 100; j < 1000; j++) {
+                    if (isPalin(i * j) && i*j>solution) {
+                        solution = i * j
+                    }
+                }
+            }
+            document.getElementById("solution").textContent = solution;
+        }
+        function isPalin(num) {
+            let word = num.toString();
+            let rev = "";
+            for (let i = 0; i < word.length; i++) {
+                rev = rev.concat(word[word.length - i - 1]);
+            }
+            if (word == rev) {
+                return true;
+            }
+            return false;
         }
     </script>
 </body>
