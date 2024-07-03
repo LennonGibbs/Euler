@@ -9,6 +9,9 @@
     <button onclick="threeFive()">
         Multiples of 3 or 5
     </button>
+    <button onclick="fibEven()">
+        Even Fibonacci Numbers
+    </button>
     <p id="solution"></p>
     <script>
         function threeFive() {
@@ -19,6 +22,21 @@
                 }
             }
             document.getElementById("solution").textContent=total;
+        }
+        function fibEven() {
+            let total = 0;
+            let current = 0;
+            let prev = 0;
+            let temp = 0;
+            while (current < 4000000) {
+                temp = current + prev;
+                prev = current;
+                current = temp;
+                if (current % 2 == 0) {
+                    total += current;
+                }
+            }
+            document.getElementById("solution").textContent = total;
         }
     </script>
 </body>
