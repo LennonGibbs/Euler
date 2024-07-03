@@ -3,26 +3,71 @@
 
 </head>
 <body>
-    <p>
-        Please select which problem you would like to solve
-    </p>
-    <button onclick="threeFive()">
-        Multiples of 3 or 5
-    </button>
-    <button onclick="fibEven()">
-        Even Fibonacci Numbers
-    </button>
-    <button onclick="largePrime()">
-        Largest Prime Factor
-    </button>
-    <button onclick="palindrome()">
-        Largest Palindrome Product
-    </button>
-    <button onclick="smallMult()">
-        Smallest Multiple
-    </button>
-    <p id="solution"></p>
+    <style>
+        body{
+            background-color: darkgray;
+        }
+        p{
+            font-family: 'Comic Sans MS';
+            font-size:medium;
+        }
+        button{
+            padding:4px;
+            background-color: aquamarine;
+            border-radius: 12px;
+        }
+        select{
+            background-color: beige;
+            border-width: 5px;
+            border-radius: 20px;
+            font-size: large;
+            font-family: 'Comic Sans MS';
+        }
+        table{
+            margin-left:auto;
+            margin-right:auto;
+            width:50%;
+        }
+    </style>
+    <table>
+        <tr><td>
+            <p>
+                Please select which problem you would like to solve
+            </p>
+        </td></tr>
+        <tr>
+            <td>
+                <select name="problems" id="problems">
+                    <option value="threeFive">Multiples of 3 or 5</option>
+                    <option value="fibEven">Even Fibonacci Numbers</option>
+                    <option value="largePrime">Largest Prime Factor</option>
+                    <option value="palindrome">Largest Palindrome Product</option>
+                    <option value="smallMult">Smallest Multiple</option>
+                </select>
+            </td>
+            <td>
+                <button onclick="solve()">Solve</button>
+            </td>
+        </tr>
+        <tr><td>  
+            <p id="solution"></p>
+        </td></tr>
+    </table>
     <script>
+        function solve() {
+            let problem = document.getElementById("problems").value
+            if (problem == "threeFive") {
+                threeFive();
+            } else if (problem == "fibEven") {
+                fibEven();
+            } else if (problem == "largePrime") {
+                largePrime();
+            } else if (problem == "palindrome") {
+                palindrome();
+            } else if (problem == "smallMult") {
+                smallMult();
+            }
+        }
         function threeFive() {
             let total = 0;
             for (let i = 0; i < 1000; i++) {
