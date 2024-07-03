@@ -18,6 +18,9 @@
     <button onclick="palindrome()">
         Largest Palindrome Product
     </button>
+    <button onclick="smallMult()">
+        Smallest Multiple
+    </button>
     <p id="solution"></p>
     <script>
         function threeFive() {
@@ -85,6 +88,22 @@
                 return true;
             }
             return false;
+        }
+        function smallMult() {
+            let solution = 20;
+            while (true) {
+                let isSol = true;
+                for (let i = 1; i < 21; i++) {
+                    if (solution % i != 0) {
+                        isSol=false; 
+                    }
+                }
+                if (isSol) {
+                    document.getElementById("solution").textContent = solution;
+                    break;
+                }
+                solution++;
+            }
         }
     </script>
 </body>
