@@ -48,6 +48,12 @@ function load() {
         document.getElementById("input2").style.display = "none";
         document.getElementById("input3").style.display = "none";
         document.getElementById("solve").style.display = "block";
+    } else if (problem == "specialTriplet") {
+        document.getElementById("input1").style.display = "none";
+        document.getElementById("input2").style.display = "none";
+        document.getElementById("input3").style.display = "none";
+        document.getElementById("solve").style.display = "none";
+        specialTriplet();
     }
 }
 function solve() {
